@@ -21,6 +21,7 @@ class Mascota extends Model
     'peso',
     'genero',
     'id_propietario'
+    'id_especie'
 ];
 
 }
