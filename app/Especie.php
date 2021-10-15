@@ -10,7 +10,7 @@ class Especie extends Model
 
      protected $table='especies';
     protected $primaryKey='id_especie';
-
+   
     public $incrementing=true;
     public $timestamps=false;
 
@@ -18,4 +18,7 @@ class Especie extends Model
     	'id_especie',
     	'especie'
     ];
+
+   
+
 }

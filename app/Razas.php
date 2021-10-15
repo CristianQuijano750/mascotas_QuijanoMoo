@@ -9,7 +9,7 @@ class Razas extends Model
     //
      protected $table='razas';
     protected $primaryKey='id_razas';
-
+     public $with=['mascotas'];
     public $incrementing=true;
     public $timestamps=false;
 
@@ -17,4 +17,8 @@ class Razas extends Model
     	'id_razas',
     	'razas'
       ];
-}
+public function mascotas(){
+        return $this->hasMany(Mascota::class, 'id_razas','id_razas');
+    }
+
+     }
