@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
 
 
@@ -20,3 +20,16 @@ Route::apiResource('apiMascota','MascotaController');
 Route::apiResource('apiEspecie','EspecieController');
 Route::apiResource('apiRazas','RazasController');
 Route::apiResource('apiPropietarios','PropietariosController');
+
+Route::get('prueba', function(){
+    //return base64_encode('HOLA');
+    return DB::select("SELECT * FROM usuarios");
+});
+
+Route::get('Desencriptar', function(){
+    return base64_decode('SE9MQQ==');
+});
+
+
+Route::post('validar','AccesoController@validar');
+
