@@ -38,3 +38,10 @@ Route::get('mascotas', function () {
     return view('mascotas');
 });
 
+
+
+
+
+Route::get ('especies', function () {
+	return view('especies');
+	});
