@@ -80,6 +80,7 @@ class EspecieController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $especie=Especie::find($id);
+        $especie->delete();
     }
 }

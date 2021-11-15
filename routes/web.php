@@ -45,3 +45,8 @@ Route::get('mascotas', function () {
 Route::get ('especies', function () {
 	return view('especies');
 	});
+
+
+Route::get('propietarios', function () {
+    return view('propietarios');
+});
