@@ -4,6 +4,8 @@
 	
 	<!--inicia vue-->
 	<div id="mascota">
+		
+
 		<div class="row">
 			<!--inicio de col-->
 			<div class="col-md-12">
@@ -15,6 +17,9 @@
 							<i class="fas fa-plus"></i>
 						</span>
 						</h3>
+						<div class="col-md-6">
+					<input type="text" placeholder="Escribe el nombre de la Mascota" class="form-control" v-model="buscar">
+				</div>
 					</div>
 				
 					<div class="card-body">
@@ -25,21 +30,24 @@
 						<th>NOMBRE</th>
 						<th>GENERO</th>
 						<th>PESO</th>
+						<th>ESPECIE</th>
 						<th>ACCIONES</th>
 					</thead>
 
 					<tbody>
 						
-						<tr v-for="mascota in mascotas">
+						<tr v-for="mascota in filtroMascotas">
 							<td hidden="">@{{mascota.id_mascota}}</td>
 							<td>@{{mascota.nombre}}</td>
 							<td>@{{mascota.genero}}</td>
 							<td>@{{mascota.peso}}</td>
+							<td>@{{mascota.especie.especie}}</td>
 							<td>
 								<button class="btn btn-sm" @click="editandoMascota(mascota.id_mascota)">
-									<i class="fas fa-edit"></i>
+
+									<i class="fas fa-pen"></i>
 								</button>
-								<button class="btn btn-sm" @click="eliminarMascota(mascota.id_mascota)">
+								<button class="btn btn-sm" @click="eliminarMascota(mascota.id_mascota)"> 
 									<i class="fas fa-trash-alt"></i>
 								</button>
 							</td>
@@ -80,10 +88,19 @@
       	
       	<select class="form-control" v-model="genero">
       		<option disabled="">Genero de Mascota</option>
-      		<option value="M">M</option>
-      		<option value="H">H</option>
-      		
+      		<option value="M">Macho</option>
+      		<option value="H">Hembra</option>
+      		<option value="H">guy</option>
       	</select><br>
+
+      	<select class="form-control" v-model="id_especie">
+      		<option v-for="especie in especies" v-bind:value="especie.id_especie">@{{especie.especie}}</option>
+      	
+      	 
+      	</select><br>
+
+      	<!--<h3>Especie disponible: @{{id_especie}}</h3> //No usar para el usuario-->
+      	
 
       	<input type="number" class="form-control" placeholder="Peso de mascota" v-model="peso">
 

@@ -35,15 +35,16 @@ class MascotaController extends Controller
      */
     public function store(Request $request)
     {
+
         $mascota=new Mascota();
 
-        $mascota->id_mascota=$request->get('id_mascota');
+        //$mascota->id_mascota = $request->get('id_mascota');
         $mascota->nombre=$request->get('nombre');
-        $mascota->edad=$request->get('edad');
+        //$mascota->edad=$request->get('edad'); //no hay datos asi que admitelo
         $mascota->peso=$request->get('peso');
         $mascota->genero=$request->get('genero');
-        
-
+        $mascota->id_especie=$request->get('id_especie'); //nota borra si falla
+       
         $mascota->save(); 
     }
 
@@ -78,11 +79,13 @@ class MascotaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $mascota=Mascota::find($id);
-        $mascotas->nombre=$request->get('nombre');
-        $mascota->edad=$request->get('edad');
+        $mascota=Mascota::find($id);  //nota poner la se s si falla el update
+
+        $mascota->nombre=$request->get('nombre');
+        //$mascota->edad=$request->get('edad');
         $mascota->peso=$request->get('peso');
         $mascota->genero=$request->get('genero');
+        $mascota->id_especie=$request->get('id_especie');
 
         $mascota->update();
  }
@@ -97,7 +100,7 @@ class MascotaController extends Controller
     {
 
         $mascota=Mascota::find($id);
-        $mascota->destroy();
+        $mascota->delete();
 
     }
    
