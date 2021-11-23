@@ -20,6 +20,11 @@ Route::apiResource('apiMascota','MascotaController');
 Route::apiResource('apiEspecie','EspecieController');
 Route::apiResource('apiRazas','RazasController');
 Route::apiResource('apiPropietarios','PropietariosController');
+Route::apiResource('apiProducto','ProductoController');
+
+//Route::view('mascotas','mascotas');
+//Route::view('ventas','ventas');
+
 
 Route::get('prueba', function(){
     //return base64_encode('HOLA');
@@ -38,6 +43,9 @@ Route::get('mascotas', function () {
     return view('mascotas');
 });
 
+Route::get('ventas', function () {
+    return view('ventas');
+});
 
 
 
@@ -56,3 +64,4 @@ Route::get('getRazas/{id_especie}',[
 	'as' => 'getRazas',
 	'uses' => 'EspecieController@getRazas',
 ]);
+
