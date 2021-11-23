@@ -16,14 +16,16 @@ new Vue({
 		prueba:'god base de datos',
 		mascotas:[],
 		especies:[],
-
+        razas:[],
 		nombre:'',
 		genero:'',
 		peso:'',
 		agregando:true,
 		id_mascota:'',
 		id_especie:'',
+		id_raza:'',
 		buscar:'',
+
 
 
 
@@ -122,6 +124,18 @@ new Vue({
 			this.$http.get(apiEspecie).then(function(json){
 				this.especies=json.data;
 			})
+		},
+
+
+		obtenerRazas(e){
+			var id_especie=e.target.value;
+
+			//console.log(id_especie);
+			this.$http.get(rutas + '/getRazas/' + id_especie ).then(function(j){
+				this.razas=j.data;
+				
+				});  //no jala xd
+
 		}
 
 
