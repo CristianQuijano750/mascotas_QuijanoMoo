@@ -11,7 +11,7 @@ new Vue({
 	el:'#apiVenta',
 
 	data:{
-		mensaje:'HOLA MUNDO',
+		mensaje:'HOLA BIENVENIDO XD',
 		sku:'',
 		ventas:[],
 		cantidades:[],
@@ -21,10 +21,9 @@ new Vue({
 
 	},
 
-	//sejecuta automaticamente cuando la pagina se crea
+	//permite la funcion por defecto es decir desde el inicio 
 	created:function(){
 		
-
 	},
 
 	//inicio de methods
@@ -63,9 +62,8 @@ new Vue({
 			return(id)=>{
 				var total = 0;
 				total=this.ventas[id].precio * this.cantidades[id];
-				//actualizo el total de ventas del producto en el array ventas
-				this.ventas[id].total=total;
-				//actualizo la cantidad en el array ventas
+				//se visualiza la cotizacion del producto
+				this.ventas[id].total=total; //actualizamos campos
 				this.ventas[id].cantidad=this.cantidades[id];
 				return total.toFixed(1);
 			}
@@ -80,7 +78,7 @@ new Vue({
 			for (var i =  this.ventas.length - 1; i >= 0; i--) {
 				 total=total+this.ventas[i].total;
 			}
-			//mando una copia del subtotal a la seccion del data para el uso de otros calculos (auxsubtotal)
+			//subtotal de el apartado del subaux
 			this.auxSubTotal=total.toFixed(1);
 			return total.toFixed(1);
 		},
@@ -92,13 +90,13 @@ new Vue({
 			return auxIva.toFixed(1);
 		},
 
-		granTotal(){
+		numTotal(){
 			var auxTotal=0;
 			auxTotal=this.auxSubTotal*1.16;
 			return auxTotal.toFixed(1);
 		},
 
-		noArticulos(){
+		numeroArticulos(){
 			var acum=0;
 			for (var i = this.ventas.length - 1; i >= 0; i--) {
 				acum=acum+this.ventas[i].cantidad;

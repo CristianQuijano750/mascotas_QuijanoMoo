@@ -81,11 +81,11 @@
 									</tr>
 									<tr>
 										<th style="background: #ffff66">TOTAL</th>
-										<td><b>$ @{{granTotal}}</b></td>
+										<td><b>$ @{{numTotal}}</b></td>
 									</tr>
 									<tr>
 										<th style="background: #ffff66">Articulos: </th>
-										<th>@{{noArticulos}}</th>
+										<th>@{{numeroArticulos}}</th>
 
 									</tr>
 
@@ -114,8 +114,9 @@
 @push('scripts')
 
 	<script type="text/javascript" src="{{asset('js/vue-resource.js')}}"></script>
-	<script type="text/javascript" src="{{asset('js/apis/apiVenta.js')}}"></script>
+	<script type="text/javascript" src="{{asset('js/apis/apiVenta.js')}}"></script> 
 
+ <!-- extenciones para la interfaz -->
 @endpush
 
-<!-- <input type="hidden" name="route" value="{{url('/')}}"> -->
+<!-- ya no funciona borrar opcional<input type="hidden" name="route" value="{{url('/')}}"> -->
